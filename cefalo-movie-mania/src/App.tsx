@@ -1,10 +1,18 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import './App.scss';
+import { routes } from './routes';
 
 const App: React.FC = () => {
     return (
         <div className="App">
-            <h1>Cefalo Movie Mania</h1>
+            <Router>
+                <Switch>
+                    {routes.map((route, i) => (
+                        <Route exact path={route.path} component={route.component} key={i} />
+                    ))}
+                </Switch>
+            </Router>
         </div>
     );
 };
