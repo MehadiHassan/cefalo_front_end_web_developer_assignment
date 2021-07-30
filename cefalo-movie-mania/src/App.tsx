@@ -5,15 +5,13 @@ import { routes } from './routes';
 
 const App: React.FC = () => {
     return (
-        <div className="App">
-            <Router>
-                <Switch>
-                    {routes.map((route, i) => (
-                        <Route exact path={route.path} component={route.component} key={i} />
-                    ))}
-                </Switch>
-            </Router>
-        </div>
+        <Router>
+            <Switch>
+                {routes.map((route, i) => (
+                    <Route exact path={route.path} component={route.component} key={i} />
+                ))}
+            </Switch>
+        </Router>
     );
 };
 
