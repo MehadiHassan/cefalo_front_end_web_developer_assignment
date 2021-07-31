@@ -1,8 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'mdbreact/dist/css/mdb.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './state/store';
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -10,7 +10,9 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
     <React.StrictMode>
-        <App />
+        <Provider store={store}>
+            <App />
+        </Provider>
     </React.StrictMode>,
     document.getElementById('root'),
 );
