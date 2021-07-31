@@ -10,12 +10,12 @@ import { GenreItem } from '../../data_model/commonData/GenereItem';
 import './_movies.scss';
 import { SetGenreListToStore } from '../../state/genre/GenreAction';
 import { SetMoviesByGenreIdToStore } from '../../state/movies/MoviesAction';
+import { GenreMoviesData } from '../../state/movies/types';
 
 const Movies: React.FC = () => {
     const dispatch = useDispatch();
-    // const [isRetrieveCompleteMovieData, SetIsRetrieveCompleteMovieData] = useState<boolean>(false);
-    // const [genreList, SetGenreList] = useState<GenreItem[]>([]);
-    const [genreMovieList, SetGenreMovieList] = useState<MoviesData[]>([]);
+    const [genreList, setGenreList] = useState<GenreItem[]>();
+    const [genreMovieList, setGenreMovieList] = useState<GenreMoviesData[]>([]);
     const [genreService] = useInject<GenreService>(cid.GenreService);
     const [moviesService] = useInject<MoviesService>(cid.MoviesService);
 
@@ -29,29 +29,22 @@ const Movies: React.FC = () => {
 
     useEffect(() => {
         FetchGenreInfoAsync().then((genreResponse: GenreData) => {
-            console.log('Genre Data:-', genreResponse);
-            // SetGenreList(genreResponse.genres);
+            setGenreList(genreResponse.genres);
             dispatch(SetGenreListToStore(genreResponse.genres));
-            genreResponse.genres.map((genreItem: GenreItem, index) => {
-                console.log('Index:-', index, genreResponse.genres.length - 1);
-                // moviesData.push(
+            genreResponse.genres.map((genreItem: GenreItem) => {
                 FetchMovieInfoAsync(genreItem.id, 1).then((moviesResponse: MoviesData) => {
-                    // SetGenreMovieList([...genreMovieList, moviesResponse]);
-                    SetGenreMovieList(genreMovieList => [...genreMovieList, moviesResponse]);
-                    console.log('Movies Data:-', moviesResponse);
-                    // moviesData.push(moviesResponse);
+                    setGenreMovieList(genreMovieList => [
+                        ...genreMovieList,
+                        { id: genreItem.id, movieGenreData: moviesResponse },
+                    ]);
                 });
-                // );
-                // console.log('adsafasf:-', moviesData);
             });
-            // console.log('adsafasf:-', moviesData);
-            // if (moviesData && moviesData.length > 0) dispatch(SetMoviesByGenreIdToStore(moviesData));
         });
     }, []);
 
     useEffect(() => {
         dispatch(SetMoviesByGenreIdToStore(genreMovieList));
-    }, [genreMovieList]);
+    }, [genreMovieList.length == genreList?.length]);
 
     return (
         <div className="movies-container container">

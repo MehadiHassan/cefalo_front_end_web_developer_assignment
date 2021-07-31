@@ -58,7 +58,7 @@ const Footer: React.FC = () => {
                         </a>
                     </div>
                 </div>
-                <p className="copyright">Company Name © 2018</p>
+                <p className="copyright">CEFALO Movie Mania-Web Development Assignment © 2021 </p>
             </div>{' '}
         </footer>
     );

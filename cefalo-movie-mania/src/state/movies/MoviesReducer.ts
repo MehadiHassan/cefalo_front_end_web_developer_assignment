@@ -1,7 +1,7 @@
 import { MoviesState, SET_MOVIES_BY_GENRE_ID, MoviesActionTypes } from './types';
 
 export const initialState: MoviesState = {
-    movies: [],
+    movieGenreData: [],
 };
 
 export function MoviesReducer(state = initialState, action: MoviesActionTypes): MoviesState {
@@ -9,7 +9,7 @@ export function MoviesReducer(state = initialState, action: MoviesActionTypes): 
         case SET_MOVIES_BY_GENRE_ID:
             return {
                 ...state,
-                movies: action.moviesData,
+                movieGenreData: action.moviesData,
             };
         default:
             return state;
