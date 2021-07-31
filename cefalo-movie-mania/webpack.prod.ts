@@ -1,11 +1,7 @@
 import merge from 'webpack-merge';
-import path from 'path';
-import globAll from 'glob-all';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
-import PurgeCSSPlugin from 'purgecss-webpack-plugin';
-import whitelister from 'purgecss-whitelister';
 import WorkboxPlugin = require('workbox-webpack-plugin');
 import commonConfig = require('./webpack.common');
 
@@ -70,22 +66,6 @@ module.exports = merge(commonConfig, {
             // On-Demand-Loading of CSS and SourceMap
             filename: '[name].[contenthash].css',
             chunkFilename: '[id].[chunkhash].css',
-        }),
-        // Remove unused css
-        new PurgeCSSPlugin({
-            paths: globAll.sync([`${path.join(__dirname, 'src/**/*')}`], {
-                nodir: true,
-            }),
-            safelist: whitelister([
-                /**
-                 * Add the css,scss,less file path here
-                 * as a string that you want to be whitlisted, including
-                 * node_modules lib css file path if needed
-                 */
-                './node_modules/bootstrap/dist/css/bootstrap.min.css',
-                './src/scss/_variables.scss',
-                './src/scss/_common.scss',
-            ]),
         }),
         //Workbox should always be the last plugin you call.
         new WorkboxPlugin.InjectManifest({
