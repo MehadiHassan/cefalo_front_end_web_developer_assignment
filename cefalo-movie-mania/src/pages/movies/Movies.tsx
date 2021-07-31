@@ -11,6 +11,7 @@ import './_movies.scss';
 import { SetGenreListToStore } from '../../state/genre/GenreAction';
 import { SetMoviesByGenreIdToStore } from '../../state/movies/MoviesAction';
 import { GenreMoviesData } from '../../state/movies/types';
+import MoviesSearchSection from '../../componenets/MoviesSearchSection/MoviesSearchSection';
 
 const Movies: React.FC = () => {
     const dispatch = useDispatch();
@@ -50,6 +51,7 @@ const Movies: React.FC = () => {
         <div className="movies-container container">
             <div className="content">
                 <div className="content-inside">
+                    <MoviesSearchSection />
                     <MovieListByGenres />
                 </div>
             </div>
