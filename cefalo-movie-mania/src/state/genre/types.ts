@@ -8,7 +8,7 @@ export interface GenreState {
 
 export interface SetGenereListAction {
     type: typeof SET_GENRE_LIST;
-    genreData: GenreState;
+    genreData: GenreItem[];
 }
 
 export type GenreActionTypes = SetGenereListAction;

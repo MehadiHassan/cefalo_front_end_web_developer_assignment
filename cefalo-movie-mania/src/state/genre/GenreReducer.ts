@@ -9,7 +9,7 @@ export function GenreReducer(state = initialState, action: GenreActionTypes): Ge
         case SET_GENRE_LIST:
             return {
                 ...state,
-                genres: action.genreData.genres,
+                genres: action.genreData,
             };
         default:
             return state;

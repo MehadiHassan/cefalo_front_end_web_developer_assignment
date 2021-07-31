@@ -6,7 +6,7 @@ import MoviesServiceInterface from './MoviesServiceInterface';
 
 @injectable()
 export default class MoviesService implements MoviesServiceInterface {
-    async getData(genreID: string, pageNumber: string): Promise<MoviesData> {
+    async getData(genreID: number, pageNumber: number): Promise<MoviesData> {
         return cefaloMovieManiaAPI
             .get(`/movie/${genreID}/lists?api_key=${process.env.API_KEY}&language=en-US&page=${pageNumber}`)
             .then((response: AxiosResponse) => {

@@ -1,6 +1,7 @@
-import { SET_GENRE_LIST, GenreState, GenreActionTypes } from './types';
+import { GenreItem } from '../../data_model/commonData/GenereItem';
+import { SET_GENRE_LIST, GenreActionTypes } from './types';
 
-export const SetGenreListToStore = (data: GenreState): GenreActionTypes => {
+export const SetGenreListToStore = (data: GenreItem[]): GenreActionTypes => {
     return {
         type: SET_GENRE_LIST,
         genreData: data,

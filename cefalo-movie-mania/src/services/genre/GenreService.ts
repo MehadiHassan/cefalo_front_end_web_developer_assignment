@@ -11,7 +11,6 @@ export default class GenreService implements GenreServiceInterface {
             .get(`/genre/movie/list?api_key=${process.env.API_KEY}&language=en-US`)
             .then((response: AxiosResponse) => {
                 const GenreData = this.transformResponseToData(response);
-
                 return GenreData;
             })
             .catch((error: AxiosError) => {
