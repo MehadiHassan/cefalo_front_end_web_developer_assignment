@@ -11,7 +11,7 @@ import './_movies.scss';
 import { SetGenreListToStore } from '../../state/genre/GenreAction';
 import { SetMoviesByGenreIdToStore } from '../../state/movies/MoviesAction';
 import { GenreMoviesData } from '../../state/movies/types';
-import MoviesSearchSection from '../../componenets/MoviesSearchSection/MoviesSearchSection';
+import MoviesSearchSection from '../../componenets/movies_search_section/MoviesSearchSection';
 
 const Movies: React.FC = () => {
     const dispatch = useDispatch();

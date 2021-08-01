@@ -1,17 +1,29 @@
 import loadable from '@loadable/component';
 
-const Movies = loadable(() => import('../pages/movies/Movies'));
+const PageNotFound = loadable(() => import('../componenets/common/page_not_found/PageNotFound'));
 const PageLayoutController = loadable(
     () => import('../componenets/page_layout/page_layout_controller/PageLayoutController'),
 );
 
 export const routes = [
     {
-        path: '/',
+        path: '/:id',
         component: PageLayoutController,
     },
     {
         path: '/movies',
-        component: Movies,
+        component: PageLayoutController,
+    },
+    {
+        path: '/genre/:genreId',
+        component: PageLayoutController,
+    },
+    {
+        path: '/',
+        component: PageLayoutController,
+    },
+    {
+        path: '*',
+        component: PageNotFound,
     },
 ];

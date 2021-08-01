@@ -26,6 +26,7 @@
         "idb-keyval": "^5.0.6",
         "inversify-hooks": "^2.1.6",
         "inversify-react": "^1.0.0",
+        "query-string": "^7.0.1",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "react-grid-carousel": "^1.0.1",
