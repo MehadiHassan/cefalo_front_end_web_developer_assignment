@@ -41,6 +41,10 @@
         border: none;
         border-radius: 30px;
         padding: 10px 20px;
+
+        &:focus-visible {
+          outline: unset;
+        }
       }
 
       input[type=submit] {
