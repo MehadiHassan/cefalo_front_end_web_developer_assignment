@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { cid, useInject } from 'inversify-hooks';
 import ReactPlayer from 'react-player';
+import { FaStar } from 'react-icons/fa';
+import { IconContext } from 'react-icons';
 import MoviesService from '../../services/movies/MoviesService';
 import { MoveDetailsData, MovieCastCrewData, MoviesData } from '../../data_model/movies/MoviesData';
 import './_movieDetails.scss';
@@ -44,19 +46,27 @@ const MovieDetails: React.FC = () => {
             <div className="error-message"> Unable to get movie details.</div>
         ) : (
             <>
-                <div className="movie-title">
-                    <h1> {movieDetails?.original_title} </h1>
-                </div>
                 <div className="movie-others-info">
-                    <div className="movie-released-info">
-                        <span className="release-date">{movieDetails?.release_date}</span>
-                        <span className="language">{movieDetails?.original_language}</span>
-                        <span className="status">{movieDetails?.status}</span>
+                    <div className="movie-title-released-info">
+                        <div className="movie-title">
+                            <h1> {movieDetails?.original_title} </h1>
+                        </div>
+                        <div className="movie-released-info">
+                            <span className="release-date">{movieDetails?.release_date}</span>
+                            <span className="status label label-info">{movieDetails?.status}</span>
+                        </div>
                     </div>
                     <div className="movie-popularity-info">
                         <div className="rating-section">
                             <span className="rating-title">RATING</span>
-                            <span className="rating-value">{movieDetails?.vote_average}/10</span>
+                            <span className="rating-value">
+                                <IconContext.Provider value={{ className: 'rating-icon' }}>
+                                    <div>
+                                        <FaStar />
+                                    </div>
+                                </IconContext.Provider>
+                                {movieDetails?.vote_average}/10
+                            </span>
                             <span className="vote-count">{movieDetails?.vote_count}</span>
                         </div>
                         <div className="popularity-section">
@@ -165,7 +175,6 @@ const MovieDetails: React.FC = () => {
     useEffect(() => {
         FetchRelatedMovieDetailsInfoAsync(Number(movieId))
             .then((relatedMovieDetailsResponse: MoviesData) => {
-                console.log('Related Movie Details:-', relatedMovieDetailsResponse);
                 if (relatedMovieDetailsResponse.results.length > 0)
                     setRelatedMovies(relatedMovieDetailsResponse.results);
                 else setIsRelatedMoviesError(true);
@@ -194,7 +203,6 @@ const MovieDetails: React.FC = () => {
     useEffect(() => {
         FetchMovieDetailsInfoAsync(Number(movieId))
             .then((movieDetailsResponse: MoveDetailsData) => {
-                console.log('Movie Details:-', movieDetailsResponse);
                 setMovieDetails(movieDetailsResponse);
                 if (movieDetailsResponse.poster_path)
                     setMoviePoster(`https://image.tmdb.org/t/p/w220_and_h330_face${movieDetailsResponse.poster_path}`);

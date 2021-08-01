@@ -36,12 +36,8 @@ const Footer: React.FC = () => {
                         </ul>
                     </div>
                     <div className="col-md-6 item text">
-                        <h3>Company Name</h3>
-                        <p>
-                            Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula
-                            rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum
-                            vel in justo.
-                        </p>
+                        <h3>Cefalo Movie Mania FE Assignment</h3>
+                        <p>Greates Movie and TV Shows site all over the world.</p>
                     </div>
                     <div className="col item social">
                         <a href="#">

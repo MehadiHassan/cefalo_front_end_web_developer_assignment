@@ -7,6 +7,80 @@
   margin-top: 76px;
 
   .selected-movie-details-container {
+    .movie-others-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+
+      .movie-title-released-info {
+        .movie-released-info {
+          display: flex;
+
+          .status {
+            background-color: #5bc0de;
+            display: inline;
+            padding: 8px;
+            font-size: 75%;
+            font-weight: 700;
+            line-height: 1;
+            color: #fff;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: 0.25em;
+            margin-left: 5px;
+          }
+        }
+      }
+
+      .movie-popularity-info {
+        display: flex;
+
+        .rating-section {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding-right: 10px;
+
+          .rating-title {
+            color: #2c2b2b;
+            font-weight: bold;
+          }
+
+          .rating-value {
+            position: relative;
+            font-weight: bold;
+            color: rgb(85, 84, 84);
+
+            .rating-icon {
+              color: coral;
+              position: absolute;
+              left: -32px;
+              font-size: 31px;
+              bottom: -14px;
+            }
+          }
+        }
+
+        .popularity-section {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .popularity-title {
+            color: #2c2b2b;
+            font-weight: bold;
+          }
+
+          .popularity-value {
+            color: rgb(85, 84, 84);
+            font-weight: bold;
+          }
+        }
+      }
+    }
+
     .poster-section {
       display: grid;
       grid-template-columns: 20% 80%;
@@ -59,7 +133,7 @@
             &::before {
               background: #f5c518;
               content: '';
-              margin-left: -.75rem;
+              margin-left: -0.75rem;
               align-self: flex-start;
               position: absolute;
               height: 50px;
@@ -81,7 +155,7 @@
             &::before {
               background: #f5c518;
               content: '';
-              margin-left: -.75rem;
+              margin-left: -0.75rem;
               align-self: flex-start;
               position: absolute;
               height: 50px;
@@ -98,6 +172,18 @@
           }
         }
       }
+    }
+  }
+
+  .related-movies-title {
+    &::before {
+      background: #f5c518;
+      content: '';
+      margin-left: -0.75rem;
+      align-self: flex-start;
+      position: absolute;
+      height: 50px;
+      width: 4px;
     }
   }
 
@@ -177,6 +263,19 @@
 @media only screen and (max-width: 768px) {
   .movie-details-container {
     .selected-movie-details-container {
+      .movie-others-info {
+        .movie-title-released-info {
+          .movie-released-info {
+            display: flex;
+            flex-direction: column;
+
+            .status {
+              margin-left: 0;
+            }
+          }
+        }
+      }
+
       .movie-cast-crew-section {
         .movie-cast-crew-main-content {
           .movie-cast-container {
@@ -203,6 +302,19 @@
 @media only screen and (max-width: 425px) {
   .movie-details-container {
     .selected-movie-details-container {
+      .movie-others-info {
+        .movie-title-released-info {
+          .movie-released-info {
+            display: flex;
+            flex-direction: column;
+
+            .status {
+              margin-left: 0;
+            }
+          }
+        }
+      }
+
       .movie-cast-crew-section {
         .movie-cast-crew-main-content {
           .movie-cast-container {
