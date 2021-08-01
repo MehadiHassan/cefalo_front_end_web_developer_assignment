@@ -1,5 +1,7 @@
 import { cid, useInject } from 'inversify-hooks';
 import React, { useEffect, useState } from 'react';
+import { FaHeart } from 'react-icons/fa';
+import { IconContext } from 'react-icons';
 import MoviesService from '../../../services/movies/MoviesService';
 import { MovieItem } from '../../../data_model/commonData/MovieItem';
 import { MoveDetailsData } from '../../../data_model/movies/MoviesData';
@@ -33,6 +35,14 @@ const MovieGridItem: React.FC<MovieGridItemProps> = (movieGridItemprops: MovieGr
             <span className="name"> {movieGridItemprops.movies.original_title}</span>
             <div className="description">{movieGridItemprops.movies.overview}</div>
             <div className="release-date">{movieGridItemprops.movies.release_date}</div>
+            <span className="popularity-water-mark">
+                <IconContext.Provider value={{ className: 'popularity-icon' }}>
+                    <div>
+                        <FaHeart />
+                    </div>
+                </IconContext.Provider>
+                {movieGridItemprops.movies.popularity}
+            </span>
         </div>
     );
 };

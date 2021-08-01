@@ -4,6 +4,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: relative;
 
       .poster-image {
         max-width: 250px;
@@ -33,6 +34,23 @@
 
       .release-date {
         color: #619cb8;
+      }
+
+      .popularity-water-mark {
+        display: flex;
+        position: absolute;
+        top: 7px;
+        background: #454749 !important;
+        color: #bcc3ce !important;
+        height: 30px;
+        width: 90px;
+        border-radius: 8px;
+        padding: 2px;
+        justify-content: space-around;
+
+        .popularity-icon {
+          color: #e85600 !important;
+        }
       }
     }
   }

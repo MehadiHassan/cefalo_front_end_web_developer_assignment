@@ -8,7 +8,7 @@ import GenreServiceInterface from './GenreServiceInterface';
 export default class GenreService implements GenreServiceInterface {
     async getData(): Promise<GenreData> {
         return cefaloMovieManiaAPI
-            .get(`/genre/movie/list?api_key=${process.env.API_KEY}&language=en-US`)
+            .get(`/genre/movie/list?api_key=${process.env.API_KEY}`)
             .then((response: AxiosResponse) => {
                 const GenreData = this.transformResponseToData(response);
                 return GenreData;

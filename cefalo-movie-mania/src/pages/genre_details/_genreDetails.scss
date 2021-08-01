@@ -16,10 +16,25 @@
 
   .movie-details-by-popularity {
     grid-template-columns: 20% 20% 20% 20% 20%;
-
-    /* grid-template-rows: 80px auto 80px; */
     column-gap: 10px;
     row-gap: 15px;
     display: grid;
+    padding-bottom: 50px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .genre-content {
+    .movie-details-by-popularity {
+      grid-template-columns: 50% 50%;
+    }
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .genre-content {
+    .movie-details-by-popularity {
+      grid-template-columns: 100%;
+    }
   }
 }
