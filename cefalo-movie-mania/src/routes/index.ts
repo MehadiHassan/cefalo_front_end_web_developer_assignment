@@ -19,6 +19,10 @@ export const routes = [
         component: PageLayoutController,
     },
     {
+        path: '/movies/:movieId',
+        component: PageLayoutController,
+    },
+    {
         path: '/',
         component: PageLayoutController,
     },

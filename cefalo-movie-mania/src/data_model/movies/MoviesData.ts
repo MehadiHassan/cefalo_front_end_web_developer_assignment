@@ -1,5 +1,7 @@
+import { MovieCastItem } from '../commonData/MovieCastItem';
 import { GenreItem } from '../commonData/GenereItem';
 import { MovieItem } from '../commonData/MovieItem';
+import { MovieCrewItem } from '../commonData/MovieCrewItem';
 
 export interface MoviesData {
     page: number;
@@ -57,4 +59,18 @@ export interface MoveDetailsData {
     video: boolean;
     vote_average: number;
     vote_count: number;
+}
+
+export interface MovieCastData {
+    cast: MovieCastItem[];
+}
+
+export interface MovieCrewData {
+    crew: MovieCrewItem[];
+}
+
+export interface MovieCastCrewData {
+    id: number;
+    cast: MovieCastItem[];
+    crew: MovieCrewItem[];
 }

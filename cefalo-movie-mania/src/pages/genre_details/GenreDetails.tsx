@@ -49,7 +49,8 @@ const GenreDetails: React.FC = () => {
     useEffect(() => {
         FetchMovieInfoAsync(Number(genreId), 1)
             .then((moviesResponse: MoviesData) => {
-                setGenreMovieList(GetMovieByPopularity(moviesResponse.results));
+                if (moviesResponse.results.length > 0) setGenreMovieList(GetMovieByPopularity(moviesResponse.results));
+                else setIsGettingError(true);
             })
             .catch(error => {
                 console.log('Get error:-', error);
@@ -62,7 +63,7 @@ const GenreDetails: React.FC = () => {
                 <div className="error-message"> No movie found.</div>
             ) : (
                 <div className="container">
-                    {genreDetails && <GenreHeader id={genreDetails[0].id} name={genreDetails[0].name} />}
+                    {genreDetails && <GenreHeader id={genreDetails[0]?.id} name={genreDetails[0]?.name} />}
 
                     <div className="movie-details-by-popularity container">
                         {genreMovieList.map(item => {

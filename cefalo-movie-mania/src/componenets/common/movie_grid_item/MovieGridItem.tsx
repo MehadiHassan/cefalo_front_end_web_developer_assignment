@@ -6,6 +6,7 @@ import MoviesService from '../../../services/movies/MoviesService';
 import { MovieItem } from '../../../data_model/commonData/MovieItem';
 import { MoveDetailsData } from '../../../data_model/movies/MoviesData';
 import DefaultPoster from '../../../assets/images/deafult-poster.jpg';
+import { Link } from 'react-router-dom';
 
 interface MovieGridItemProps {
     movies: MovieItem;
@@ -27,11 +28,13 @@ const MovieGridItem: React.FC<MovieGridItemProps> = (movieGridItemprops: MovieGr
 
     return (
         <div className="movie-inner-content">
-            <img
-                className="poster-image"
-                src={!moviePoster || moviePoster == null ? DefaultPoster : moviePoster}
-                alt="poster"
-            />
+            <Link className="genre-name" to={`/movies/${movieGridItemprops.movies.id}`}>
+                <img
+                    className="poster-image"
+                    src={!moviePoster || moviePoster == null ? DefaultPoster : moviePoster}
+                    alt="poster"
+                />
+            </Link>
             <span className="name"> {movieGridItemprops.movies.original_title}</span>
             <div className="description">{movieGridItemprops.movies.overview}</div>
             <div className="release-date">{movieGridItemprops.movies.release_date}</div>
