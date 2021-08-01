@@ -1,0 +1,11 @@
+.genre-header {
+  .genre-name {
+    color: #646566 !important;
+    text-decoration: none;
+
+    &:hover {
+      color: #3c3e3f !important;
+      text-decoration: underline;
+    }
+  }
+}
