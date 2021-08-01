@@ -23,7 +23,7 @@ export default class MoviesService implements MoviesServiceInterface {
 
     async getMovieDetails(movieID: number): Promise<MoveDetailsData> {
         return cefaloMovieManiaAPI
-            .get(`/movie/${movieID}?api_key=${process.env.API_KEY}`)
+            .get(`/movie/${movieID}?api_key=${process.env.API_KEY}&append_to_response=videos`)
             .then((response: AxiosResponse) => {
                 const MovieDetailsData = this.transformResponseToDetailsData(response);
                 return MovieDetailsData;

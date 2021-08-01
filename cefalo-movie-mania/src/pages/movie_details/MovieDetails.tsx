@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { cid, useInject } from 'inversify-hooks';
+import ReactPlayer from 'react-player';
 import MoviesService from '../../services/movies/MoviesService';
 import { MoveDetailsData, MovieCastCrewData, MoviesData } from '../../data_model/movies/MoviesData';
 import './_movieDetails.scss';
@@ -67,6 +68,14 @@ const MovieDetails: React.FC = () => {
                 {moviePoster && (
                     <div className="poster-section">
                         <img className="poster-image" src={moviePoster} alt="poster" />
+                        <div className="movie-trailer">
+                            <ReactPlayer
+                                className="react-player"
+                                width="100%"
+                                height="100%"
+                                url={`https://www.youtube.com/watch?v=${movieDetails?.videos.results[0].key}`}
+                            />
+                        </div>
                     </div>
                 )}
                 <div className="genre-list">

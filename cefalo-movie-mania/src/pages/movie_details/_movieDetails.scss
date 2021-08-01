@@ -7,6 +7,17 @@
   margin-top: 76px;
 
   .selected-movie-details-container {
+    .poster-section {
+      display: grid;
+      grid-template-columns: 20% 80%;
+      column-gap: 10px;
+
+      .poster-image {
+        width: 100%;
+        height: auto;
+      }
+    }
+
     .genre-list {
       display: inline-flex;
       flex-wrap: wrap;
