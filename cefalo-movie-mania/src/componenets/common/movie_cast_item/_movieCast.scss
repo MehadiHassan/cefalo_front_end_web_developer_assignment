@@ -1,8 +1,9 @@
-.movie-crew-item {
+.movie-cast-item {
   display: inline-flex;
   justify-content: space-around;
+  align-items: center;
 
-  .crew-profile {
+  .cast-profile {
     display: inline-block;
     width: 150px;
     height: 150px;
@@ -12,11 +13,11 @@
     background-size: cover;
   }
 
-  .crew-info {
+  .cast-info {
     display: inline-flex;
     flex-direction: column;
 
-    .crew-name {
+    .cast-name {
       color: rgba(0, 0, 0, 0.85);
       font-weight: bold;
       cursor: pointer;
@@ -26,7 +27,7 @@
       }
     }
 
-    .crew-postion {
+    .cast-postion {
       color: #faabab;
     }
   }

@@ -12,11 +12,11 @@
       flex-wrap: wrap;
 
       .genre-list-item {
-        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-        font-size: .875rem;
+        font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+        font-size: 0.875rem;
         line-height: 1.25rem;
         font-weight: 400;
-        letter-spacing: .01786em;
+        letter-spacing: 0.01786em;
         text-decoration: inherit;
         text-transform: inherit;
         -webkit-font-smoothing: auto;
@@ -27,7 +27,7 @@
         cursor: pointer;
         display: inline-flex;
         margin: 0;
-        padding: .25rem .75rem;
+        padding: 0.25rem 0.75rem;
         position: relative;
         overflow: hidden;
         user-select: none;
@@ -37,6 +37,54 @@
 
         &:hover {
           background: #807b7b;
+        }
+      }
+    }
+
+    .movie-cast-crew-section {
+      .movie-cast-crew-main-content {
+        .movie-cast-container {
+          .top-cast-title {
+            &::before {
+              background: #f5c518;
+              content: '';
+              margin-left: -.75rem;
+              align-self: flex-start;
+              position: absolute;
+              height: 50px;
+              width: 4px;
+            }
+          }
+
+          .cast-list {
+            grid-template-columns: 25% 25% 25% 25%;
+            column-gap: 10px;
+            row-gap: 15px;
+            display: grid;
+            padding-bottom: 50px;
+          }
+        }
+
+        .movie-crew-container {
+          .top-crew-title {
+            &::before {
+              background: #f5c518;
+              content: '';
+              margin-left: -.75rem;
+              align-self: flex-start;
+              position: absolute;
+              height: 50px;
+              width: 4px;
+            }
+          }
+
+          .crew-list {
+            grid-template-columns: 25% 25% 25% 25%;
+            column-gap: 10px;
+            row-gap: 15px;
+            display: grid;
+            padding-bottom: 50px;
+          }
         }
       }
     }
@@ -98,41 +146,71 @@
     }
   }
 
-  .related-movies-section {
-    .error-message {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-weight: bold;
-      font-size: 50px;
-    }
+  .error-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 50px;
+  }
 
-    .related-movies {
-      grid-template-columns: 20% 20% 20% 20% 20%;
-      column-gap: 10px;
-      row-gap: 15px;
-      display: grid;
-      padding-bottom: 50px;
-    }
+  .related-movies {
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    column-gap: 10px;
+    row-gap: 15px;
+    display: grid;
+    padding-bottom: 50px;
   }
 }
 
 @media only screen and (max-width: 768px) {
   .movie-details-container {
-    .related-movies-section {
-      .related-movies {
-        grid-template-columns: 50% 50%;
+    .selected-movie-details-container {
+      .movie-cast-crew-section {
+        .movie-cast-crew-main-content {
+          .movie-cast-container {
+            .cast-list {
+              grid-template-columns: 50% 50%;
+            }
+          }
+
+          .movie-crew-container {
+            .crew-list {
+              grid-template-columns: 50% 50%;
+            }
+          }
+        }
       }
+    }
+
+    .related-movies {
+      grid-template-columns: 50% 50%;
     }
   }
 }
 
 @media only screen and (max-width: 425px) {
   .movie-details-container {
-    .related-movies-section {
-      .related-movies {
-        grid-template-columns: 100%;
+    .selected-movie-details-container {
+      .movie-cast-crew-section {
+        .movie-cast-crew-main-content {
+          .movie-cast-container {
+            .cast-list {
+              grid-template-columns: 100%;
+            }
+          }
+
+          .movie-crew-container {
+            .crew-list {
+              grid-template-columns: 100%;
+            }
+          }
+        }
       }
+    }
+
+    .related-movies {
+      grid-template-columns: 100%;
     }
   }
 }

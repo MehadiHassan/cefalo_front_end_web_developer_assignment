@@ -103,32 +103,28 @@ const MovieDetails: React.FC = () => {
                             {isGetMovieCastDataError ? (
                                 <div className="error-message"> No Cast found.</div>
                             ) : (
-                                <div className="cast-list">
+                                <>
                                     <h2 className="top-cast-title">Top Cast</h2>
-                                    {movieCastData?.map(item => {
-                                        return (
-                                            <div key={item.id}>
-                                                <MovieCast castItem={item} />
-                                            </div>
-                                        );
-                                    })}
-                                </div>
+                                    <div className="cast-list">
+                                        {movieCastData?.map((item, index) => {
+                                            return <MovieCast key={index} castItem={item} />;
+                                        })}
+                                    </div>
+                                </>
                             )}
                         </div>
                         <div className="movie-crew-container">
                             {isGetMovieCrewDataError ? (
                                 <div className="error-message"> No Crew found.</div>
                             ) : (
-                                <div className="cast-list">
-                                    <h2 className="top-cast-title">Top Crew</h2>
-                                    {movieCrewData?.map(item => {
-                                        return (
-                                            <div key={item.id}>
-                                                <MovieCrew crewItem={item} />
-                                            </div>
-                                        );
-                                    })}
-                                </div>
+                                <>
+                                    <h2 className="top-crew-title">Top Crew</h2>
+                                    <div className="crew-list">
+                                        {movieCrewData?.map((item, index) => {
+                                            return <MovieCrew key={index} crewItem={item} />;
+                                        })}
+                                    </div>
+                                </>
                             )}
                         </div>
                     </div>
@@ -201,13 +197,11 @@ const MovieDetails: React.FC = () => {
     }, [moviePoster]);
 
     return (
-        <div className="movie-details-container">
-            <div className="container related-movies-section">
-                <div className="selected-movie-details-container">
-                    {GetMovieDetailsBasicInfoUIElement()} {GetMovieDetailsCastCrewInfoUIElement()}
-                </div>
-                {GetMovieDetailsRelatedMovieUIElement()}
+        <div className="container movie-details-container">
+            <div className="selected-movie-details-container">
+                {GetMovieDetailsBasicInfoUIElement()} {GetMovieDetailsCastCrewInfoUIElement()}
             </div>
+            {GetMovieDetailsRelatedMovieUIElement()}
         </div>
     );
 };
