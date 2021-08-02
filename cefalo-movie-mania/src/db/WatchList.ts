@@ -1,18 +1,19 @@
+import { WatchListMovies } from '../data_model/commonData/WatchListItem';
 import { MovieDetailsData } from '../data_model/movies/MoviesData';
 import { db } from '../index_db_helper/index';
 
 export async function AddSingleMovieItem(movieDetailsData: MovieDetailsData): Promise<void> {
-    (await db).add('watchList', { ...movieDetailsData, dateTime: new Date() });
+    (await db).add('watchList', { ...movieDetailsData, dateTime: new Date().toISOString() });
 }
 
-export async function GetWatchListMovies(): Promise<MovieDetailsData[] | undefined> {
+export async function GetWatchListMovies(): Promise<WatchListMovies[] | undefined> {
     return (await db)
         .getAllFromIndex('watchList', 'id')
         .then(result => {
             return result;
         })
         .catch(error => {
-            console.log('There is an issue with GetAllCartProducts', error);
+            console.log('There is an issue with GetAllWatch Movies', error);
             return undefined;
         });
 }
