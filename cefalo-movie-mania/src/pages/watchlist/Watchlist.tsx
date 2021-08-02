@@ -3,6 +3,7 @@ import { GetWatchListMovies } from '../../db/WatchList';
 import './_watchList.scss';
 import MovieWatchListItem from '../../componenets/movie_watch_list_item/MovieWatchListItem';
 import { WatchListMovies } from '../../data_model/commonData/WatchListItem';
+import { Localization } from './Localization';
 
 const Watchlist: React.FC = () => {
     const [watchedListMovie, setWatchedListMovie] = useState<WatchListMovies[]>();
@@ -45,8 +46,6 @@ const Watchlist: React.FC = () => {
     };
 
     const SortedMovieController = (value: string) => {
-        console.log('Gettting the value:-', value);
-
         switch (value) {
             case 'SortedByAddedDate':
                 SortedByDate();
@@ -77,13 +76,13 @@ const Watchlist: React.FC = () => {
             {watchedListMovie && watchedListMovie?.length > 0 ? (
                 <>
                     <div className="title-section">
-                        <h1>Your WatchList</h1>
+                        <h1>{Localization.watchListTitle}</h1>
                         <div className="sorted-watched-movied">
-                            Sort By:-
+                            {Localization.sortByLabel}
                             <select id="lang" onChange={event => SortedMovieController(event.target.value)}>
-                                <option value="SortedByAddedDate">By Added Date</option>
-                                <option value="Popularity">Popularity</option>
-                                <option value="Ratings">Ratings</option>
+                                <option value="SortedByAddedDate">{Localization.byAddedDate}</option>
+                                <option value="Popularity">{Localization.populairty}</option>
+                                <option value="Ratings">{Localization.ratings}</option>
                             </select>
                         </div>
                     </div>
@@ -92,7 +91,7 @@ const Watchlist: React.FC = () => {
                     })}
                 </>
             ) : (
-                <div className="error-message"> Currently there is no Movie in the watch list. </div>
+                <div className="error-message">{Localization.watchListMoviesError}</div>
             )}
         </div>
     );

@@ -1,9 +1,11 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
 import { IconContext } from 'react-icons';
+import { Localization } from './Localization';
 import DefaultPoster from '../../assets/images/deafult-poster.jpg';
 import { MovieDetailsData } from '../../data_model/movies/MoviesData';
 import './_movieWatchListItem.scss';
+import { IMDB_BASE_URL } from '../../utility/CommonConstant';
 
 export interface MovieWatchListItemProps {
     movieDetails: MovieDetailsData;
@@ -15,7 +17,7 @@ const MovieWatchListItem: React.FC<MovieWatchListItemProps> = (movieWatchListIte
             <div className="movie-watch-list-content">
                 <div className="poster-image-content">
                     <a
-                        href={`https://www.imdb.com/title/${movieWatchListItemProps.movieDetails.imdb_id}/?ref_=helpms_ih_gi_link`}
+                        href={`${IMDB_BASE_URL}${movieWatchListItemProps.movieDetails.imdb_id}/?ref_=helpms_ih_gi_link`}
                         target="_blank"
                         rel="noreferrer">
                         <img
@@ -55,7 +57,7 @@ const MovieWatchListItem: React.FC<MovieWatchListItemProps> = (movieWatchListIte
                         </div>
                         <div className="popularity-contents">
                             <div className="popularity-value">{movieWatchListItemProps.movieDetails.popularity}</div>
-                            <span className="populairty-title"> Populairty </span>
+                            <span className="populairty-title"> {Localization.populairtyLabel} </span>
                         </div>
                     </div>
                     <span className="movie-overview">{movieWatchListItemProps.movieDetails.overview}</span>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Movies from '../../../pages/movies/Movies';
 import GenreDetails from '../../../pages/genre_details/GenreDetails';
 import Footer from '../footer/Footer';
@@ -13,10 +13,8 @@ const PageLayoutController: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const { genreId } = useParams<{ genreId: string }>();
     const { movieId } = useParams<{ movieId: string }>();
-    const location = useLocation();
     return (
         <div className="page-layout-container">
-            {console.log('ID SEARCH PARAM:-', id, location.pathname, genreId)}
             {id == 'movies' || genreId || movieId || id == 'watchlist' ? (
                 <>
                     <NavMenubar />

@@ -17,6 +17,7 @@ export interface IStrings extends LocalizedStringsMethods {
     email: string;
     fbPhoneNumber: string;
     printPhoneNumber: string;
+    services: string;
 }
 
 export const Localization: IStrings = new LocalizedStrings({
@@ -30,7 +31,7 @@ export const Localization: IStrings = new LocalizedStrings({
         advertising: 'Advertising',
         jobs: 'Jobs',
         community: 'COMMUNITY',
-        copyright: 'Copyright:',
+        copyright: 'Copyright©',
         guidelines: 'Guidelines',
         discussions: 'Discussions',
         contact: 'Contact',
@@ -38,6 +39,7 @@ export const Localization: IStrings = new LocalizedStrings({
         email: 'info@example.com',
         fbPhoneNumber: '+ 880 xxx xxx xx',
         printPhoneNumber: '+ 880 yyy yyy yy',
+        services: 'Services',
     },
     // Norway
     no: {
@@ -49,7 +51,7 @@ export const Localization: IStrings = new LocalizedStrings({
         advertising: 'Reklame',
         jobs: 'jobber',
         community: 'FELLESSKAP',
-        copyright: 'Opphavsrett:',
+        copyright: 'Opphavsrett©',
         guidelines: 'Retningslinjer',
         discussions: 'Diskusjoner',
         contact: 'Kontakt',
@@ -57,5 +59,6 @@ export const Localization: IStrings = new LocalizedStrings({
         email: 'info@example.com',
         fbPhoneNumber: '+ 880 xxx xxx xx',
         printPhoneNumber: '+ 880 yyy yyy yy',
+        services: 'Tjenester',
     },
 });

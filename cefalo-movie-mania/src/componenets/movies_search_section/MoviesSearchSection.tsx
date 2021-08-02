@@ -1,10 +1,11 @@
 import React from 'react';
+import { Localization } from './Localization';
 import './_moviesSeacrhSection.scss';
 const MoviesSearchSection: React.FC = () => {
     return (
         <div className="search-section-container conatiner">
-            <h1 className="display-3">Welcome</h1>
-            <p className="lead">Millions of movies, TV shows and people to discover. Explore now.</p>
+            <h1 className="display-3">{Localization.welcomeTitle}</h1>
+            <p className="lead">{Localization.welcomeMessage}</p>
             <div className="search-box">
                 <form id="inner_search_form" action="/search" method="get" acceptCharset="utf-8">
                     <label>
@@ -18,7 +19,7 @@ const MoviesSearchSection: React.FC = () => {
                             auto-fill="off"
                             autoComplete="off"
                             spellCheck
-                            placeholder="Search for a movie, tv show, person......"
+                            placeholder={Localization.searchBoxPlaceHolder}
                         />
                     </label>
                     <input type="submit" value="Search" />

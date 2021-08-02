@@ -1,3 +1,4 @@
+import { Localization } from './Localization';
 import React from 'react';
 import './_footer.scss';
 
@@ -8,36 +9,26 @@ const Footer: React.FC = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-sm-6 col-md-3 item">
-                        <h3>Services</h3>
+                        <h3>{Localization.contact}</h3>
                         <ul>
-                            <li>
-                                <a href="#">Web design</a>
-                            </li>
-                            <li>
-                                <a href="#">Development</a>
-                            </li>
-                            <li>
-                                <a href="#">Hosting</a>
-                            </li>
+                            <li>{Localization.cityCountry}</li>
+                            <li>{Localization.email}</li>
+                            <li>{Localization.fbPhoneNumber}</li>
+                            <li>{Localization.printPhoneNumber}</li>
                         </ul>
                     </div>
                     <div className="col-sm-6 col-md-3 item">
-                        <h3>About</h3>
+                        <h3>{Localization.theBasics}</h3>
                         <ul>
-                            <li>
-                                <a href="#">Company</a>
-                            </li>
-                            <li>
-                                <a href="#">Team</a>
-                            </li>
-                            <li>
-                                <a href="#">Careers</a>
-                            </li>
+                            <li>{Localization.community}</li>
+                            <li>{Localization.discussions}</li>
+                            <li>{Localization.guidelines}</li>
+                            <li>{Localization.jobs}</li>
                         </ul>
                     </div>
                     <div className="col-md-6 item text">
-                        <h3>Cefalo Movie Mania FE Assignment</h3>
-                        <p>Greates Movie and TV Shows site all over the world.</p>
+                        <h3>{Localization.companyName}</h3>
+                        <p>{Localization.promotionalText}</p>
                     </div>
                     <div className="col item social">
                         <a href="#">
@@ -54,8 +45,11 @@ const Footer: React.FC = () => {
                         </a>
                     </div>
                 </div>
-                <p className="copyright">CEFALO Movie Mania-Web Development Assignment © 2021 </p>
-            </div>{' '}
+                <p className="copyright">
+                    {Localization.copyright}
+                    {Localization.companyName}
+                </p>
+            </div>
         </footer>
     );
 };

@@ -10,6 +10,7 @@ import { GenreData } from '../../data_model/genre/GenereData';
 import GenreService from '../../services/genre/GenreService';
 import { GenreItem } from '../../data_model/commonData/GenereItem';
 import GenreHeader from '../../componenets/common/genre_header/GenreHeader';
+import { Localization } from './Localization';
 
 const GenreDetails: React.FC = () => {
     const { genreId } = useParams<{ genreId: string }>();
@@ -60,7 +61,7 @@ const GenreDetails: React.FC = () => {
     return (
         <div className="genre-content">
             {isGettingError ? (
-                <div className="error-message"> No movie found.</div>
+                <div className="error-message">{Localization.errorMessage}</div>
             ) : (
                 <div className="container">
                     {genreDetails && <GenreHeader id={genreDetails[0]?.id} name={genreDetails[0]?.name} />}

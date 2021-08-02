@@ -17,14 +17,14 @@ const NavMenubar: React.FC = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="#home">Home</Nav.Link>
+                            <Nav.Link href="#home">{Localization.home}</Nav.Link>
                             <Nav.Link href="/watchlist" className="watch-list">
                                 <IconContext.Provider value={{ className: 'fa-reg-bookmark' }}>
                                     <div>
                                         <FaStopwatch />
                                     </div>
                                 </IconContext.Provider>
-                                <span className="watch-list-title">Watchlist</span>
+                                <span className="watch-list-title">{Localization.watchList}</span>
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
