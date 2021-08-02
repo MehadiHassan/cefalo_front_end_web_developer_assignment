@@ -1,7 +1,7 @@
 import { injectable } from 'inversify-hooks';
 import { cefaloMovieManiaAPI } from '../../api/index';
 import { AxiosResponse, AxiosError } from 'axios';
-import { MoveDetailsData, MovieCastCrewData, MoviesData } from '../../data_model/movies/MoviesData';
+import { MovieDetailsData, MovieCastCrewData, MoviesData } from '../../data_model/movies/MoviesData';
 import MoviesServiceInterface from './MoviesServiceInterface';
 
 @injectable()
@@ -21,7 +21,7 @@ export default class MoviesService implements MoviesServiceInterface {
             });
     }
 
-    async getMovieDetails(movieID: number): Promise<MoveDetailsData> {
+    async getMovieDetails(movieID: number): Promise<MovieDetailsData> {
         return cefaloMovieManiaAPI
             .get(`/movie/${movieID}?api_key=${process.env.API_KEY}&append_to_response=videos`)
             .then((response: AxiosResponse) => {
@@ -66,7 +66,7 @@ export default class MoviesService implements MoviesServiceInterface {
         return response.data;
     }
 
-    private transformResponseToDetailsData(response: AxiosResponse): MoveDetailsData {
+    private transformResponseToDetailsData(response: AxiosResponse): MovieDetailsData {
         return response.data;
     }
 

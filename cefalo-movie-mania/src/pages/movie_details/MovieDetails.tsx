@@ -4,7 +4,7 @@ import ReactPlayer from 'react-player';
 import { FaStar } from 'react-icons/fa';
 import { IconContext } from 'react-icons';
 import MoviesService from '../../services/movies/MoviesService';
-import { MoveDetailsData, MovieCastCrewData, MoviesData } from '../../data_model/movies/MoviesData';
+import { MovieDetailsData, MovieCastCrewData, MoviesData } from '../../data_model/movies/MoviesData';
 import './_movieDetails.scss';
 import { useParams } from 'react-router-dom';
 import { MovieItem } from '../../data_model/commonData/MovieItem';
@@ -25,11 +25,11 @@ const MovieDetails: React.FC = () => {
     const [moviePoster, setMoviePoster] = useState<string>('');
     const [movieCastData, setMovieCastData] = useState<MovieCastItem[]>();
     const [movieCrewData, setMovieCrewData] = useState<MovieCrewItem[]>();
-    const [movieDetails, setMovieDetails] = useState<MoveDetailsData>();
+    const [movieDetails, setMovieDetails] = useState<MovieDetailsData>();
     const [relatedMovies, setRelatedMovies] = useState<MovieItem[]>();
     const [moviesService] = useInject<MoviesService>(cid.MoviesService);
 
-    const FetchMovieDetailsInfoAsync = (movieID: number): Promise<MoveDetailsData> => {
+    const FetchMovieDetailsInfoAsync = (movieID: number): Promise<MovieDetailsData> => {
         return moviesService.getMovieDetails(movieID);
     };
 
@@ -202,7 +202,7 @@ const MovieDetails: React.FC = () => {
 
     useEffect(() => {
         FetchMovieDetailsInfoAsync(Number(movieId))
-            .then((movieDetailsResponse: MoveDetailsData) => {
+            .then((movieDetailsResponse: MovieDetailsData) => {
                 setMovieDetails(movieDetailsResponse);
                 if (movieDetailsResponse.poster_path)
                     setMoviePoster(`https://image.tmdb.org/t/p/w220_and_h330_face${movieDetailsResponse.poster_path}`);

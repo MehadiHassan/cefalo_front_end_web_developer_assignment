@@ -57,9 +57,7 @@ module.exports = {
         }),
         new CleanWebpackPlugin(), // Delete bundle which is generated in the output directory
         new CopyWebpackPlugin({
-            patterns: [
-                { from: './public/*', to: '.' },
-            ],
+            patterns: [{ from: './public/*', to: '.' }],
         }),
         new ForkTsCheckerWebpackPlugin({
             eslint: {
