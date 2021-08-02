@@ -1,34 +1,34 @@
 # Before run the project please follow the below steps
-STEP1: Rename the file name **.env.development.local** to **.env.development**
+**STEP1:** Rename the file name **.env.development.local** to **.env.development**
 
-STEP2: Rename the file name **.env.mock.local** to **.env.mock**
+**STEP2:** Rename the file name **.env.mock.local** to **.env.mock**
 
-STEP3: Rename the file name **.env.production.local** to **.env.production**
+**STEP3:** Rename the file name **.env.production.local** to **.env.production**
 
-STEP4: Rename the file name **.env.staging.local** to **.env.staging**
+**STEP4:** Rename the file name **.env.staging.local** to **.env.staging**
 
 You need to follow the steps below for run and build the project:-
 
 ## If yarn not installed, please install it by following command otherwise go to STEP6
-STEP5: npm i yarn 
+**STEP5:** npm i yarn 
 
 ## If you don't have the latest code then please run the following command for install dependencies
-STEP6: yarn install or yarn
+**STEP6:** yarn install or yarn
 Regenreate new node modules
 
 ## Run the following command
 
 ## This will auto fix the linting error
-STEP7: yarn lint:fix
+**STEP7:** yarn lint:fix
 
 ## This will auto fix the prettier and stylelint error
-STEP8: yarn lintcss:fix
+**STEP8:** yarn lintcss:fix
 
 ## Now run the project locally, this will generate optimize dev bundle from webpack.dev webpack.common file and run the project in yoru local browser.
-STEP9: yarn start:dev 
+**STEP9:** yarn start:dev 
 
 Runs the app in the development mode using the webpack dev config file.<br />
-Open [http://localhost:3000] or [http://{youripaddress}:8080] to view it in the browser.
+Open [http://localhost:3000] or [http://{youripaddress}:3000] to view it in the browser.
 
 The page will reload if you make edits.<br />
 
