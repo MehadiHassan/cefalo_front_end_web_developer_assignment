@@ -1,17 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { FaStopwatch } from 'react-icons/fa';
 import { IconContext } from 'react-icons';
-import { useSelector } from 'react-redux';
 import { Localization } from './Localization';
 import './_navMenuBar.scss';
-import { RootState } from '../../../state/store';
 
 const NavMenubar: React.FC = () => {
-    const totalAddedWatchedList = useSelector((state: RootState) => state.MovieList.totalAddedWatchList);
-    useEffect(() => {
-        console.log('Total Added:-', totalAddedWatchedList);
-    }, [totalAddedWatchedList]);
     return (
         <div className="custom-navbar">
             <Navbar expand="lg">
@@ -31,9 +25,6 @@ const NavMenubar: React.FC = () => {
                                     </div>
                                 </IconContext.Provider>
                                 <span className="watch-list-title">Watchlist</span>
-                                {totalAddedWatchedList > 0 && (
-                                    <div className="watch-list-counter">{totalAddedWatchedList}</div>
-                                )}
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>

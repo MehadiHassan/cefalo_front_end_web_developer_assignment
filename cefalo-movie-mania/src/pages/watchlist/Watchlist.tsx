@@ -9,9 +9,6 @@ const Watchlist: React.FC = () => {
 
     useEffect(() => {
         GetWatchListMovies().then(result => {
-            // const getMovieFromIndexDB = result?.filter(movieItem => movieItem.id === movieGridItemprops.movies.id);
-            // if (getMovieFromIndexDB && getMovieFromIndexDB?.length > 0) setIsAddedWatchedList(true);
-            // else setIsAddedWatchedList(false);
             setWatchedListMovie(result);
         });
     }, []);
@@ -19,10 +16,12 @@ const Watchlist: React.FC = () => {
         <div className="watch-list-container container">
             {watchedListMovie && watchedListMovie?.length > 0 ? (
                 <>
-                    {' '}
+                    <div className="title-section">
+                        <h1>Your WatchList</h1>
+                    </div>
                     {watchedListMovie?.map((movieItem, index) => {
                         return <MovieWatchListItem key={index} movieDetails={movieItem} />;
-                    })}{' '}
+                    })}
                 </>
             ) : (
                 <div className="error-message"> Currently there is no Movie in the watch list. </div>

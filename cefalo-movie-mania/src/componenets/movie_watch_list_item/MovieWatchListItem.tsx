@@ -1,4 +1,7 @@
 import React from 'react';
+import { FaStar } from 'react-icons/fa';
+import { IconContext } from 'react-icons';
+import DefaultPoster from '../../assets/images/deafult-poster.jpg';
 import { MovieDetailsData } from '../../data_model/movies/MoviesData';
 import './_movieWatchListItem.scss';
 
@@ -9,7 +12,55 @@ export interface MovieWatchListItemProps {
 const MovieWatchListItem: React.FC<MovieWatchListItemProps> = (movieWatchListItemProps: MovieWatchListItemProps) => {
     return (
         <div className="movie-watch-list-item-container">
-            <h1> {movieWatchListItemProps.movieDetails.original_title}</h1>
+            <div className="movie-watch-list-content">
+                <div className="poster-image-content">
+                    <a
+                        href={`https://www.imdb.com/title/${movieWatchListItemProps.movieDetails.imdb_id}/?ref_=helpms_ih_gi_link`}
+                        target="_blank"
+                        rel="noreferrer">
+                        <img
+                            className="poster-image"
+                            src={
+                                !movieWatchListItemProps.movieDetails.poster_path ||
+                                movieWatchListItemProps.movieDetails.poster_path == null
+                                    ? DefaultPoster
+                                    : `https://image.tmdb.org/t/p/w220_and_h330_face${movieWatchListItemProps.movieDetails.poster_path}`
+                            }
+                            alt="poster"
+                        />
+                    </a>
+                </div>
+                <div className="movie-basic-info-container">
+                    <span className="movie-name">{movieWatchListItemProps.movieDetails.original_title}</span>
+                    <div className="movie-released-and-gnere-info">
+                        <span className="released-year"> {movieWatchListItemProps.movieDetails.release_date} </span>
+                        <span className="movie-language">{movieWatchListItemProps.movieDetails.original_language}</span>
+                        <div className="movie-genre-info">
+                            {movieWatchListItemProps.movieDetails.genres.map((genre, index) => {
+                                return (
+                                    <span key={index} className="genre-name">
+                                        {genre.name}
+                                        {index < movieWatchListItemProps.movieDetails.genres.length - 1 ? ',' : ''}
+                                    </span>
+                                );
+                            })}
+                        </div>
+                    </div>
+                    <div className="rating-and-popularity-info">
+                        <div className="rating-contents">
+                            <IconContext.Provider value={{ className: 'fa-star-icon' }}>
+                                <div>{<FaStar />}</div>
+                            </IconContext.Provider>
+                            <span className="rating-value">{movieWatchListItemProps.movieDetails.vote_average}</span>
+                        </div>
+                        <div className="popularity-contents">
+                            <div className="popularity-value">{movieWatchListItemProps.movieDetails.popularity}</div>
+                            <span className="populairty-title"> Populairty </span>
+                        </div>
+                    </div>
+                    <span className="movie-overview">{movieWatchListItemProps.movieDetails.overview}</span>
+                </div>
+            </div>
         </div>
     );
 };
