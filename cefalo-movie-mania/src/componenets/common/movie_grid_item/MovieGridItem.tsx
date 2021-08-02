@@ -7,7 +7,14 @@ import { Link } from 'react-router-dom';
 import { MovieDetailsData } from '../../../data_model/movies/MoviesData';
 import MoviesService from '../../../services/movies/MoviesService';
 import { cid, useInject } from 'inversify-hooks';
-import { AddSingleMovieItem, GetWatchListMovies, RemoveMovieFromWatchList } from '../../../db/WatchList';
+import {
+    AddSingleMovieItem,
+    GetTotalAddedWatchedListFromIndexDB,
+    GetWatchListMovies,
+    RemoveMovieFromWatchList,
+} from '../../../db/WatchList';
+import { useDispatch } from 'react-redux';
+import { SetTotalAddedWatchedListToStore } from '../../../state/movies/MoviesAction';
 
 interface MovieGridItemProps {
     movies: MovieItem;
@@ -15,18 +22,26 @@ interface MovieGridItemProps {
 
 const MovieGridItem: React.FC<MovieGridItemProps> = (movieGridItemprops: MovieGridItemProps) => {
     const [moviesService] = useInject<MoviesService>(cid.MoviesService);
-
+    const dispatch = useDispatch();
     const [isAddedWatchedList, setIsAddedWatchedList] = useState<boolean>(false);
 
     const FetchMovieDetailsInfoAsync = (movieID: number): Promise<MovieDetailsData> => {
         return moviesService.getMovieDetails(movieID);
     };
+
+    const SetTotalAddedWatchedList = () => {
+        GetTotalAddedWatchedListFromIndexDB().then(result => {
+            if (result) dispatch(SetTotalAddedWatchedListToStore(result));
+        });
+    };
+
     const AddRemoveToMyWatchList = () => {
         if (!isAddedWatchedList)
             FetchMovieDetailsInfoAsync(movieGridItemprops.movies.id)
                 .then((movieDetailsResponse: MovieDetailsData) => {
                     setIsAddedWatchedList(true);
                     AddSingleMovieItem(movieDetailsResponse);
+                    SetTotalAddedWatchedList();
                 })
                 .catch(error => {
                     console.log('Related Movie Error:-', error);
@@ -34,6 +49,7 @@ const MovieGridItem: React.FC<MovieGridItemProps> = (movieGridItemprops: MovieGr
         else {
             setIsAddedWatchedList(false);
             RemoveMovieFromWatchList(movieGridItemprops.movies.id);
+            SetTotalAddedWatchedList();
         }
     };
 
@@ -43,6 +59,10 @@ const MovieGridItem: React.FC<MovieGridItemProps> = (movieGridItemprops: MovieGr
             if (getMovieFromIndexDB && getMovieFromIndexDB?.length > 0) setIsAddedWatchedList(true);
             else setIsAddedWatchedList(false);
         });
+    }, []);
+
+    useEffect(() => {
+        SetTotalAddedWatchedList();
     }, []);
 
     return (

@@ -27,3 +27,14 @@ export async function RemoveMovieFromWatchList(movieId: number): Promise<void> {
 
     await tx.done;
 }
+
+export async function GetTotalAddedWatchedListFromIndexDB(): Promise<number | undefined> {
+    return GetWatchListMovies()
+        .then(result => {
+            return result?.length;
+        })
+        .catch(error => {
+            console.log('Compare:-', error);
+            return undefined;
+        });
+}

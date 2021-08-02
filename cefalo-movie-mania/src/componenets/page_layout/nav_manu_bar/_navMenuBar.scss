@@ -45,8 +45,36 @@
       }
     }
 
+    .navbar-nav {
+      .watch-list {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        .fa-reg-bookmark {
+          font-size: 23px;
+          margin-right: 4px;
+          color: rgb(255, 159, 103);
+        }
+
+        .watch-list-counter {
+          margin-left: 0.5rem;
+          background: rgb(245, 197, 24);
+          color: rgb(252, 237, 237);
+          padding: 0 0.4rem;
+          border-radius: 20px;
+          text-align: center;
+        }
+      }
+    }
+
     .navbar-nav .nav-link {
       color: $white !important;
+
+      &:hover {
+        background: rgb(1, 80, 117);
+        border-radius: 20px;
+      }
     }
 
     .navbar-toggler-icon {
