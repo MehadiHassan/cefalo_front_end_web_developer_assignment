@@ -5,7 +5,7 @@ import { Localization } from './Localization';
 import DefaultPoster from '../../assets/images/deafult-poster.jpg';
 import { MovieDetailsData } from '../../data_model/movies/MoviesData';
 import './_movieWatchListItem.scss';
-import { IMDB_BASE_URL } from '../../utility/CommonConstant';
+import { IMAGE_BASE_URL, IMDB_BASE_URL } from '../../utility/CommonConstant';
 
 export interface MovieWatchListItemProps {
     movieDetails: MovieDetailsData;
@@ -26,7 +26,7 @@ const MovieWatchListItem: React.FC<MovieWatchListItemProps> = (movieWatchListIte
                                 !movieWatchListItemProps.movieDetails.poster_path ||
                                 movieWatchListItemProps.movieDetails.poster_path == null
                                     ? DefaultPoster
-                                    : `https://image.tmdb.org/t/p/w220_and_h330_face${movieWatchListItemProps.movieDetails.poster_path}`
+                                    : `${IMAGE_BASE_URL}${movieWatchListItemProps.movieDetails.poster_path}`
                             }
                             alt="poster"
                         />

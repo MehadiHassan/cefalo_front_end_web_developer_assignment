@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { MovieCastItem } from '../../../data_model/commonData/MovieCastItem';
 import ProfileAvatar from '../../../assets/images/profile-avatar.png';
 import './_movieCast.scss';
+import { IMAGE_BASE_URL } from '../../../utility/CommonConstant';
 
 interface MovieCastProps {
     castItem: MovieCastItem;
@@ -11,7 +12,7 @@ const MovieCast: React.FC<MovieCastProps> = (movieCastProps: MovieCastProps) => 
     const [castProfileImage, setCastProfileImage] = useState<string>('');
     useEffect(() => {
         if (movieCastProps.castItem.profile_path)
-            setCastProfileImage(`https://image.tmdb.org/t/p/w220_and_h330_face${movieCastProps.castItem.profile_path}`);
+            setCastProfileImage(`${IMAGE_BASE_URL}${movieCastProps.castItem.profile_path}`);
     }, []);
     return (
         <div className="movie-cast-item">

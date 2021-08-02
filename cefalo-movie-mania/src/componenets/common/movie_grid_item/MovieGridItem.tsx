@@ -8,6 +8,7 @@ import { MovieDetailsData } from '../../../data_model/movies/MoviesData';
 import MoviesService from '../../../services/movies/MoviesService';
 import { cid, useInject } from 'inversify-hooks';
 import { AddSingleMovieItem, GetWatchListMovies, RemoveMovieFromWatchList } from '../../../db/WatchList';
+import { IMAGE_BASE_URL } from '../../../utility/CommonConstant';
 
 interface MovieGridItemProps {
     movies: MovieItem;
@@ -65,7 +66,7 @@ const MovieGridItem: React.FC<MovieGridItemProps> = (movieGridItemprops: MovieGr
                     src={
                         !movieGridItemprops.movies.poster_path || movieGridItemprops.movies.poster_path == null
                             ? DefaultPoster
-                            : `https://image.tmdb.org/t/p/w220_and_h330_face${movieGridItemprops.movies.poster_path}`
+                            : `${IMAGE_BASE_URL}${movieGridItemprops.movies.poster_path}`
                     }
                     alt="poster"
                 />
