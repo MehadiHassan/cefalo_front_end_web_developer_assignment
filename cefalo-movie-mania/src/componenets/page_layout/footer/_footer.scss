@@ -1,7 +1,9 @@
+@import '../../../scss/variables';
+
 .footer-dark {
   padding: 50px 0;
-  color: #96bbd4;
-  background-color: #032541;
+  color: $polo-blue;
+  background-color: $blue-whale;
 }
 
 .footer-dark h3 {
@@ -72,7 +74,7 @@
   border-radius: 50%;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4);
   margin: 0 8px;
-  color: #fff;
+  color: $white;
   opacity: 0.75;
 }
 
@@ -89,7 +91,7 @@
 }
 
 footer {
-  background: #032541;
+  background: $blue-whale;
 
   ul {
     list-style: none;
@@ -98,7 +100,7 @@ footer {
 
     li {
       a {
-        color: seashell !important;
+        color: $seashell !important;
         text-decoration: none;
 
         &:hover {

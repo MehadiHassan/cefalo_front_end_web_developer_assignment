@@ -18,13 +18,13 @@
           display: flex;
 
           .status {
-            background-color: #5bc0de;
+            background-color: $viking;
             display: inline;
             padding: 8px;
             font-size: 75%;
             font-weight: 700;
             line-height: 1;
-            color: #fff;
+            color: $white;
             text-align: center;
             white-space: nowrap;
             vertical-align: baseline;
@@ -44,7 +44,7 @@
           padding-right: 10px;
 
           .rating-title {
-            color: #2c2b2b;
+            color: $mine_shift;
             font-weight: bold;
           }
 
@@ -54,7 +54,7 @@
             color: rgb(85, 84, 84);
 
             .rating-icon {
-              color: coral;
+              color: $coral;
               position: absolute;
               left: -32px;
               font-size: 31px;
@@ -69,7 +69,7 @@
           align-items: center;
 
           .popularity-title {
-            color: #2c2b2b;
+            color: $mine_shift;
             font-weight: bold;
           }
 
@@ -116,12 +116,12 @@
         position: relative;
         overflow: hidden;
         user-select: none;
-        background: #313131;
-        color: #fff;
-        border-color: #e4dede;
+        background: $mine-shift-light;
+        color: $white;
+        border-color: $ebb;
 
         &:hover {
-          background: #807b7b;
+          background: $boulder;
         }
       }
     }
@@ -131,7 +131,7 @@
         .movie-cast-container {
           .top-cast-title {
             &::before {
-              background: #f5c518;
+              background: $ripe-lemon;
               content: '';
               margin-left: -0.75rem;
               align-self: flex-start;
@@ -153,7 +153,7 @@
         .movie-crew-container {
           .top-crew-title {
             &::before {
-              background: #f5c518;
+              background: $ripe-lemon;
               content: '';
               margin-left: -0.75rem;
               align-self: flex-start;
@@ -177,7 +177,7 @@
 
   .related-movies-title {
     &::before {
-      background: #f5c518;
+      background: $ripe-lemon;
       content: '';
       margin-left: -0.75rem;
       align-self: flex-start;
@@ -209,18 +209,18 @@
 
         .idb-icon-active {
           font-size: 40px;
-          color: #ddb216;
+          color: $gold-tips;
         }
 
         .plus-icon {
-          color: #fff;
+          color: $white;
           position: absolute;
           top: 9px;
           left: 35%;
         }
 
         .check-mark-icon {
-          color: #000;
+          color: $black;
           position: absolute;
           top: 9px;
           left: 35%;
@@ -242,7 +242,7 @@
 
         &:hover {
           font-weight: bold;
-          color: #02b4e4;
+          color: $cerulean;
         }
       }
 
@@ -254,15 +254,15 @@
       }
 
       .release-date {
-        color: #619cb8;
+        color: $hippie-blue;
       }
 
       .popularity-water-mark {
         display: flex;
         position: absolute;
         top: 7px;
-        background: #454749 !important;
-        color: #bcc3ce !important;
+        background: $abbey !important;
+        color: $loblolly !important;
         height: 30px;
         width: 90px;
         border-radius: 8px;
@@ -270,7 +270,7 @@
         justify-content: space-around;
 
         .popularity-icon {
-          color: #e85600 !important;
+          color: $trinidad !important;
         }
       }
     }

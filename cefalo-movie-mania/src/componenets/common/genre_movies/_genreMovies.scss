@@ -1,3 +1,5 @@
+@import '../../../scss/variables';
+
 .genre-content {
   .movie-grid-item {
     .movie-inner-content {
@@ -21,18 +23,18 @@
 
         .idb-icon-active {
           font-size: 40px;
-          color: #ddb216;
+          color: $gold-tips;
         }
 
         .plus-icon {
-          color: #fff;
+          color: $white;
           position: absolute;
           top: 9px;
           left: 35%;
         }
 
         .check-mark-icon {
-          color: #000;
+          color: $black;
           position: absolute;
           top: 9px;
           left: 35%;
@@ -54,7 +56,7 @@
 
         &:hover {
           font-weight: bold;
-          color: #02b4e4;
+          color: $cerulean;
         }
       }
 
@@ -66,15 +68,15 @@
       }
 
       .release-date {
-        color: #619cb8;
+        color: $hippie-blue;
       }
 
       .popularity-water-mark {
         display: flex;
         position: absolute;
         top: 7px;
-        background: #454749 !important;
-        color: #bcc3ce !important;
+        background: $abbey !important;
+        color: $loblolly !important;
         height: 30px;
         width: 90px;
         border-radius: 8px;
@@ -82,7 +84,7 @@
         justify-content: space-around;
 
         .popularity-icon {
-          color: #e85600 !important;
+          color: $trinidad !important;
         }
       }
     }
