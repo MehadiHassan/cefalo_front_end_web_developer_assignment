@@ -11,6 +11,10 @@ export const routes = [
         component: PageLayoutController,
     },
     {
+        path: '/watchlist',
+        component: PageLayoutController,
+    },
+    {
         path: '/movies',
         component: PageLayoutController,
     },

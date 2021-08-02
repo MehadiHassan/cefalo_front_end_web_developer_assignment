@@ -7,6 +7,7 @@ import NavMenubar from '../nav_manu_bar/NavMenbar';
 import './_pageLayoutController.scss';
 import PageNotFound from '../../common/page_not_found/PageNotFound';
 import MovieDetails from '../../../pages/movie_details/MovieDetails';
+import Watchlist from '../../../pages/watchlist/Watchlist';
 
 const PageLayoutController: React.FC = () => {
     const { id } = useParams<{ id: string }>();
@@ -16,10 +17,11 @@ const PageLayoutController: React.FC = () => {
     return (
         <div className="page-layout-container">
             {console.log('ID SEARCH PARAM:-', id, location.pathname, genreId)}
-            {id == 'movies' || genreId || movieId ? (
+            {id == 'movies' || genreId || movieId || id == 'watchlist' ? (
                 <>
                     <NavMenubar />
                     {id == 'movies' && <Movies />} {genreId && <GenreDetails />} {movieId && <MovieDetails />}
+                    {id == 'watchlist' && <Watchlist />}
                     <Footer />
                 </>
             ) : id == undefined && genreId == undefined && movieId == undefined ? (
