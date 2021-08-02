@@ -1,8 +1,12 @@
 # Before run the project please follow the below steps
-STEP1: Rename the file name .env.development.local to .env.development
-STEP2: Rename the file name .env.mock.local to .env.mock
-STEP3: Rename the file name .env.production.local to .env.production
-STEP4: Rename the file name .env.staging.local to .env.staging
+STEP1: Rename the file name **.env.development.local** to **.env.development**
+
+STEP2: Rename the file name **.env.mock.local** to **.env.mock**
+
+STEP3: Rename the file name **.env.production.local** to **.env.production**
+
+STEP4: Rename the file name **.env.staging.local** to **.env.staging**
+
 You need to follow the steps below for run and build the project:-
 
 ## If yarn not installed, please install it by following command otherwise go to STEP6
